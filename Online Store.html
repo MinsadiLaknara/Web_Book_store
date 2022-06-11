@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+
+<html>
+    <head><title> Online Store</title>
+		<link rel="icon" href="img/Gold The 7 Black.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="Online Store.css">
+       
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+             <script>
+
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+        
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+        
+        
+        function tocart(name,price,Author){
+        if(document.getElementById("textbox1").value=="" ){
+            document.getElementById("textbox1").value=name;
+         document.getElementById("price1").value=price;
+		 document.getElementById("textauthor1").value=Author;
+         
+    
+         
+        }else if(document.getElementById("textbox2").value==""){
+        document.getElementById("textbox2").value=name;
+         document.getElementById("price2").value=price;  
+		 document.getElementById("textauthor2").value=Author;
+    
+        
+        }else if(document.getElementById("textbox3").value==""){
+        document.getElementById("textbox3").value=name;
+         document.getElementById("price3").value=price; 
+		document.getElementById("textauthor3").value=Author;
+
+        
+         }else if(document.getElementById("textbox4").value==""){
+        document.getElementById("textbox4").value=name;
+         document.getElementById("price4").value=price;
+		document.getElementById("textauthor4").value=Author;
+
+        }else{
+            alert("Only 4 maximum book items are allowed!");
+        }
+        
+        var result=0;
+         
+        var val1=document.getElementById("price1").value;
+        var val2=  document.getElementById("price2").value;
+        var val3=  document.getElementById("price3").value;
+        var val4=  document.getElementById("price4").value;
+             if (val1 == "")val1= 0;
+             if (val2 == "")val2= 0;
+             if (val3== "")val3= 0;
+             if (val4== "")val4= 0;
+
+        result = parseInt(val1)+parseInt(val2)+parseInt(val3)+parseInt(val4);
+        document.getElementById("total").value=result;
+        
+        }
+        
+    function emptycart(){
+        
+          document.getElementById("textbox1").value="";
+        document.getElementById("price1").value=""; 
+		document.getElementById("textauthor1").value="";		
+          document.getElementById("textbox2").value="";
+        document.getElementById("price2").value="";  
+		document.getElementById("textauthor2").value="";
+          document.getElementById("textbox3").value="";
+        document.getElementById("price3").value="";  
+		document.getElementById("textauthor3").value="";
+          document.getElementById("textbox4").value="";
+        document.getElementById("price4").value=""; 
+	document.getElementById("textauthor4").value="";		
+        document.getElementById("total").value="";
+        
+    }
+    
+    function calculatetotal(){
+           var price1= document.getElementById("price1").value;
+           var price2= document.getElementById("price2").value;
+           var price3= document.getElementById("price3").value;
+           var price4= document.getElementById("price4").value;
+           
+             var q1=  document.getElementById("quantity1").value;
+             var q2=     document.getElementById("quantity2").value;
+             var q3=     document.getElementById("quantity3").value;
+             var q4=     document.getElementById("quantity4").value;
+             
+             if (price1 == "")price1= 0;
+             if (price2 == "")price2= 0;
+             if (price3== "")price3= 0;
+             if (price4== "")price4= 0;
+             
+             
+             var final1=price1*q1;
+             var final2=price2*q2;
+             var final3=price3*q3;
+             var final4=price4*q4;
+             
+             var result=parseInt(final1)+parseInt(final2)+parseInt(final3)+parseInt(final4);
+             document.getElementById("total").value=result;
+          
+    }
+    
+    function order(){
+   var x=document.getElementById("fname").value;
+   if(x==""){
+       alert("Name should be filled!");
+       return false;
+      }
+    var y=document.getElementById("sname").value;
+   if(y==""){
+       alert("Sur Name should be filled!");
+       return false;
+      }
+    var e=document.getElementById("email").value;
+   if(e==""){
+       alert("Email should be filled!");
+       return false;
+      }
+    var z=document.getElementById("cnumber").value;
+   if(z==""){
+       alert("Card Number should be filled!");
+       return false;
+      }
+
+      
+     var price1= document.getElementById("price1").value;
+      var price2= document.getElementById("price2").value;
+       var price3= document.getElementById("price3").value;      
+        var price4= document.getElementById("price4").value; 
+        var total= document.getElementById("total").value;
+        
+            var text1;
+            var text2;
+            var text3;
+            var text4;
+            var fname=document.getElementById("fname").value;
+            var sname=document.getElementById("sname").value;
+        
+        if(total!=""){
+            
+            
+         if (price1 != ""){
+          var item1=document.getElementById("textbox1").value;
+          var q1 = document.getElementById("quantity1").value;
+          var author1 = document.getElementById("textauthor1").value;
+          text1=q1+" "+author1+" author "+item1;  
+          }else{text1="";}
+        
+         if (price2 != ""){
+      
+            var q2 = document.getElementById("quantity2").value;
+           var item2=document.getElementById("textbox2").value;
+            var author2 = document.getElementById("textauthor2").value;
+            text2=q2+" "+author2+" author "+item2;              
+                    }else{ text2="";}
+        
+           if (price3!= ""){        
+                var item3=document.getElementById("textbox3").value;
+                var q3 = document.getElementById("quantity3").value;
+                var author3 = document.getElementById("textauthor3").value;
+                text3=q3+" "+author3+" author "+item3;  
+              }else{text3="";}
+         
+          if (price4!= ""){        
+            var item4=document.getElementById("textbox4").value;
+            var q4 = document.getElementById("quantity4").value;
+            author4 = document.getElementById("textauthor4").value;
+            var text4=q4+" "+author4+" author "+item4;  
+
+       }else{ text4="";}
+       
+        alert("Your order has been requsted successfully! \nOrder Details:\nCustomer name: " +fname+" "+sname+"\nItems:\n"+text1+"\n"+text2+"\n"+text3+"\n"+text4+"\nTotal amount:  Rs. " + total+ ".00");
+
+       }
+       
+       else{
+            alert("Cart is Empty!");          }        
+
+  
+  
+}
+
+
+        
+            </script>
+
+    </head>
+    
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <div class="student"> STUDENT 1<br>Editor: Nipuna Kawshalya<br>
+    Student ID:20191134<p><br>Tasks Completed:<br>Bill Calculation<br>Buy Products Page<br>Popup Summary</p></div>
+    </div>
+  </div>
+</div>
+
+ <div class="icon-bar">
+ <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+  <a href="#" class="google"><i class="fa fa-google"></i></a> 
+  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+</div>
+    
+
+
+<img src="img/123456.png" height="230px" width="260px"  style="display: block;margin-left: auto;margin-right:auto;">
+
+<br>
+<div class="navbar">
+<a href="Home.html" >Home</a>
+<a href="New Arrivals.html">Upcomings</a>
+<a href="Online Store.html" class="active">Shop Online</a>
+ <a href="Quiz.html">Take Quiz</a>
+   <div class="dropdown">
+    <button class="dropbtn"><b>History</b>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Comic and Fantasy.html">Comic and Fantasy</a>
+      <a href="Biography.html">Biography</a>
+      <a href="Novel.html">Novel</a>
+	  <a href="Action.html">Action</a>
+    </div>
+  </div> 
+ <a href="About.html">About</a>
+ <a href="Feedback.html">Send Feedback</a>
+ <a href="Gallery.html">Gallery</a>
+<a href="Sitemap.html">Sitemap</a>
+</div>
+
+<div class="content">
+
+<div class="container">
+
+<div class="tab">
+  <button class="tablinks" onclick="openGallery(event, 'Trending')" id="defaultOpen">Trending</button>
+  <button class="tablinks" onclick="openGallery(event, 'Novels')">Novels</button>
+  <button class="tablinks" onclick="openGallery(event, 'Fantasy and Graphic novels')">Fantasy and Graphic novels</button>
+  <button class="tablinks" onclick="openGallery(event, 'Action')">Action</button>
+  <button class="tablinks" onclick="openGallery(event, 'Biography')">Biography</button>
+</div>
+
+<div id="Trending" class="tabcontent">
+
+ <div class="gallery1">
+
+                <figure class="gallery__item--1">
+                    <div class="icon-overlay"></div>
+                    <img src="img/Ron_Chernow.jpg" alt="Gallery image 1" class="gallery1__img">
+                    <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Alexander Hamilton</h3>
+                    <p class="icon-text">Ron Chernow<br>Price : Rs.3500.00</p>
+                    <br><button class="cart"  onclick="tocart('Alexander Hamilton','3500.00','Ron Chernow')" >Add to Cart</button>
+                    </div>
+                </figure>
+               
+                <figure class="gallery__item--2">
+                    <div class="icon-overlay"></div>
+                    <img src="img/Sharps.jpg" alt="Gallery image 2" class="gallery1__img">
+                    <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">SHARPS</h3>
+                    <p class="icon-text">K.J.Parker<br>Price : Rs.3260.00</p>
+                     <br><button class="cart" onclick="tocart('SHARPS,'3260.00','K.J.Parker')" >Add to Cart</button>
+                    </div>
+                </figure>
+                
+                <figure class="gallery__item--3">
+                    <div class="icon-overlay"></div>
+                    <img src="img/Scool_Zone.jpg" alt="Gallery image 3" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">BIG PRESCHOOL</h3>
+                    <p class="icon-text">Joan Hoffman<br>Price : Rs.4800.00</p>
+                     <br><button class="cart" onclick="tocart('BIG PRESCHOOL','4800.00','Joan Hoffman')">Add to Cart</button>
+                    </div>
+ 
+                </figure>
+                
+                <figure class="gallery__item--4">
+                <div class="icon-overlay"></div>
+                    <img src="img/prosper_s Demon.jpg" alt="Gallery image 4" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Prosper's Demon</h3>
+                    <p class="icon-text">K.J.Parker<br>Price : Rs.3300.00</p>
+                     <br><button class="cart" onclick="tocart('Prosper's Demon','3300.00','K.J.Parker')">Add to Cart</button>
+                    </div>
+     
+                     </figure>
+                     
+                <figure class="gallery__item--5">
+                <div class="icon-overlay"></div>
+                    <img src="img/Then_She_Was_Gone.jpg" alt="Gallery image 5" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Then She was Gone</h3>
+                    <p class="icon-text">Lisa Jewell<br>Price : Rs.5260.00</p>
+                     <br><button class="cart" onclick="tocart('Then She was Gone','5260.00','Lisa Jewell')">Add to Cart</button>
+                    </div>
+                </figure>
+                
+                <figure class="gallery__item--6">
+                <div class="icon-overlay"></div>
+                    <img src="img/Villains.jpg" alt="Gallery image 6" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Villains</h3>
+                    <p class="icon-text">Disney book group<br>Price : Rs.2060.00</p>
+                     <br><button class="cart" onclick="tocart('Villains','2060.00','Disney book group')">Add to Cart</button>
+                    </div>
+  
+                </figure>
+                <figure class="gallery__item--7">
+                <div class="icon-overlay"></div>
+                    <img src="img/Secrets_for_Flame.jpg" alt="Gallery image 7" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Serial Griller</h3>
+                    <p class="icon-text">Matt Moore<br>Price : Rs3100.00</p>
+                     <br><button class="cart" onclick="tocart('Serial Griller','3100.00','Matt Moore')">Add to Cart</button>
+                    </div>
+
+                </figure>
+                <figure class="gallery__item--8">
+                <div class="icon-overlay"></div>
+                    <img src="img/Me Elton John.jpg" alt="Gallery image 8" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Me</h3>
+                    <p class="icon-text">Elton John<br>Price : Rs.2900.00</p>
+                     <br><button class="cart" onclick="tocart('Me','2900.00','Elton John')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--9">
+                <div class="icon-overlay"></div>
+                    <img src="img/George Orwell.jpg" alt="Gallery image 9" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">1989</h3>
+                    <p class="icon-text">George Orwell<br>Price : Rs.1650.00</p>
+                     <br><button class="cart" onclick="tocart('1989','1650.00','George Orwell')">Add to Cart</button>
+                    </div>
+                   
+                </figure>
+                <figure class="gallery__item--10">
+                    <div class="icon-overlay"></div>
+                    <img src="img/Lifelode.jpg" alt="Gallery image 10" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">LifeLode</h3>
+                    <p class="icon-text">Jo Waton<br>Price : Rs.2100.00</p>
+                     <br><button class="cart" onclick="tocart('LifeLode','2100.00','Jo Waton')">Add to Cart</button>
+                    </div>
+                
+                </figure>
+                <figure class="gallery__item--11">
+                <div class="icon-overlay"></div>
+                    <img src="img/American_Dirt.jpg" alt="Gallery image 11" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">American Dirt</h3>
+                    <p class="icon-text">Jeanine Cummins<br>Price : Rs.3800.00</p>
+                     <br><button class="cart" onclick="tocart('American Dirt','3800.00','Jeanine Cummins')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--12">
+                <div class="icon-overlay"></div>
+                    <img src="img/Becoming_Michelle_Obama.jpg" alt="Gallery image 12" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Becoming</h3>
+                    <p class="icon-text">Michelle Obama<br>Price : Rs.3260.00</p>
+                     <br><button class="cart" onclick="tocart('Becoming','3260.00','Michelle Obama')">Add to Cart</button>
+                    </div>
+                </figure>
+                 <figure class="gallery__item--13">
+                 <div class="icon-overlay"></div>
+                    <img src="img/Between the World and Me.jpg" alt="Gallery image 13" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Between the world and Me</h3>
+                    <p class="icon-text">Ta-Nehisi Coates<br>Price : Rs.3700.00</p>
+                     <br><button class="cart" onclick="tocart('Between the world and Me','3700.00','Ta-Nehisi Coates')">Add to Cart</button>
+                    </div>
+                    
+                </figure>
+                <figure class="gallery__item--14">
+                <div class="icon-overlay"></div>
+                    <img src="img/Beware_the_Kakamora.jpg" alt="Gallery image 14" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Beware_the_Kakamora</h3>
+                    <p class="icon-text">RH Disney<br>Price : Rs.4100.00</p>
+                     <br><button class="cart" onclick="tocart('Beware_the_Kakamora','4100.00','RH Disney')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--15">
+                <div class="icon-overlay"></div>
+                    <img src="img/The_Secret_to_Love_that_Lasts.jpg" alt="Gallery image 15" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The 5 Love</h3>
+                    <p class="icon-text">Gury Chapman<br>Price : Rs.2800.00</p>
+                     <br><button class="cart" onclick="tocart('The 5 Love','2800.00','Gury Chapman')">Add to Cart</button>
+                    </div>
+                    
+                </figure>
+                <figure class="gallery__item--16">
+                <div class="icon-overlay"></div>
+                    <img src="img/Race.jpg" alt="Gallery image 16" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">So You Whant To Talk About Race</h3>
+                    <p class="icon-text">Ijeoma Oluo<br>Price : Rs.3220.00</p>
+                     <br><button class="cart" onclick="tocart('So You Whant To Talk About Race','3220.00','Ijeoma Oluo')">Add to Cart</button>
+                    </div>
+                </figure>
+            </div>
+
+</div>
+
+<div id="Novels" class="tabcontent">
+<div class="gallery2">
+            
+                <figure class="gallery__item--1">
+                <div class="icon-overlay"></div>
+                    <img src="img/Camino_Winds.jpg" alt="Gallery image 1" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Camino Winds</h3>
+                    <p class="icon-text">John Grisham<br>Price : Rs.5210.00</p>
+                     <br><button class="cart" onclick="tocart('Camino_Winds','5210.00','John Grisham','John Grisham')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--2">
+                <div class="icon-overlay"></div>
+                    <img src="img/cleo.png" alt="Gallery image 2" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Cleo MeDougal Regrets Nothing</h3>
+                    <p class="icon-text">Allison Winn Scatch<br>Price : Rs.5180.00</p>
+                     <br><button class="cart" onclick="tocart('Cleo MeDougal Regrets Nothing','5180.00','Allison Winn Scatch')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--3">
+                <div class="icon-overlay"></div>
+                    <img src="img/dancing girls.jpg" alt="Gallery image 3" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Dancing Girls</h3>
+                    <p class="icon-text">M.M.Chouinard<br>Price : Rs.4800.00</p>
+                     <br><button class="cart" onclick="tocart('The Dancing Girls','4800.00'.'M.M.Chouinard')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--4">
+                <div class="icon-overlay"></div>
+                    <img src="img/fires.jpg" alt="Gallery image 4" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Little Fires Everywhere</h3>
+                    <p class="icon-text">Celeste Ng<br>Price : Rs.8260.00</p>
+                     <br><button class="cart" onclick="tocart('Little Fires Everywhere','8260.00','Celeste Ng')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--5">
+                <div class="icon-overlay"></div>
+                    <img src="img/love.jpg" alt="Gallery image 5" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Dear Love,Redeen Me!</h3>
+                    <p class="icon-text">Deshon Dreams<br>Price : Rs.3110.00</p>
+                     <br><button class="cart" onclick="tocart('Dear Love,Redeen Me!','3110.00','Deshon Dreams')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--6">
+                <div class="icon-overlay"></div>
+                    <img src="img/goldfinch.jpg" alt="Gallery image 6" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The GoldFinch</h3>
+                    <p class="icon-text">Donna Tartt<br>Price : Rs.2630.00</p>
+                     <br><button class="cart" onclick="tocart('The GoldFinch','2630.00'.'Donna Tartt')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--7">
+                <div class="icon-overlay"></div>
+                    <img src="img/light.jpg" alt="Gallery image 7" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">All the light we cannot see</h3>
+                    <p class="icon-text">Anthony Doerr<br>Price : Rs.5860.00</p>
+                     <br><button class="cart" onclick="tocart('All the light we cannot see','5860.00','Anthony Doerr')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--8">
+                <div class="icon-overlay"></div>
+                    <img src="img/nantucket.jpg" alt="Gallery image 8" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Nantucket Inn</h3>
+                    <p class="icon-text">Pamela M.Kelley<br>Price : Rs.3260.00</p>
+                     <br><button class="cart" onclick="tocart('The Nantucket Inn','3260.00','Pamela M.Kelley')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--9">
+                <div class="icon-overlay"></div>
+                    <img src="img/mermaids.jpg" alt="Gallery image 9" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">When we Belived in Mermaids</h3>
+                    <p class="icon-text">Barbara O'Neal<br>Price : Rs.2900.00</p>
+                     <br><button class="cart" onclick="tocart('When we Belived in Mermaids','2900.00','Barbara O'Neal')">Add to Cart</button>
+                    </div>
+                </figure> 
+                <figure class="gallery__item--10">
+                <div class="icon-overlay"></div>
+                    <img src="img/river.jpg" alt="Gallery image 10" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Once Upone a River</h3>
+                    <p class="icon-text">Diane Setterfiled<br>Price : Rs.3800.00</p>
+                     <br><button class="cart" onclick="tocart('Once Upone a River','3800.00','Diane Setterfiled')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--11">
+                <div class="icon-overlay"></div>
+                    <img src="img/sold.jpg" alt="Gallery image 11" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Sold on a Monday</h3>
+                    <p class="icon-text">Kristina McMorris<br>Price : Rs.5090.00</p>
+                     <br><button class="cart" onclick="tocart('Sold on a Monday','5090.00','Kristina McMorris')" >Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--12">
+                <div class="icon-overlay"></div>
+                    <img src="img/the hideaway.jpg" alt="Gallery image 12" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Hideaway</h3>
+                    <p class="icon-text">Lauren K.Denton<br>Price : Rs.4600.00</p>
+                     <br><button class="cart" onclick="tocart('The Hideaway','4600.00','Lauren K.Denton')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--13">
+                <div class="icon-overlay"></div>
+                    <img src="img/the spy.jpg" alt="Gallery image 13" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Spy and the Trailor</h3>
+                    <p class="icon-text">Ben Macintyre<br>Price : Rs.4100.00</p>
+                     <br><button class="cart" onclick="tocart('Bcriss cross red dress','4100.00','Ben Macintyre')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--14">
+                <div class="icon-overlay"></div>
+                    <img src="img/wife.jpg" alt="Gallery image 14" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Slient Wife</h3>
+                    <p class="icon-text">Kerry Fisher<br>Price : Rs.3190.00</p>
+                     <br><button class="cart" onclick="tocart('The Slient Wife','3190.00','Kerry Fisher')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--15">
+                <div class="icon-overlay"></div>
+                    <img src="img/ugly.jpg" alt="Gallery image 15" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">All the ugly and wonderful things</h3>
+                    <p class="icon-text">Bryn Greenword<br>Price : Rs.4860.00</p>
+                     <br><button class="cart" onclick="tocart('All the ugly and wonderful things','4860.00','Bryn Greenword')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--16">
+                <div class="icon-overlay"></div>
+                    <img src="img/all comes black.jpg" alt="Gallery image 16" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">It All Comes Back to You</h3>
+                    <p class="icon-text">Beth Duke<br>Price : Rs.3700.00</p>
+                     <br><button class="cart" onclick="tocart('It All Comes Back to You','3700.00','Beth Duke')">Add to Cart</button>
+                    </div>
+                
+                </figure>
+            </div>
+
+</div>
+
+<div id="Fantasy and Graphic novels" class="tabcontent">
+ <div class="gallery3">
+            
+                <figure class="gallery__item--1">
+                <div class="icon-overlay"></div>
+                    <img src="img/1.jpg" alt="Gallery image 1" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Stoner</h3>
+                    <p class="icon-text">Edwina Mc Namee<br>Price : Rs.3100.00</p>
+                    <br><button class="cart" onclick="tocart('Stoner','3100.00','Edwina Mc Namee')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--2">
+                <div class="icon-overlay"></div>
+                    <img src="img/2.jpg" alt="Gallery image 2" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                     <h3 class="icon-title">The Chroniks of Gxandria The Mighty Nein</h3>
+                    <p class="icon-text">Critical Role<br>Price : Rs.4800.00</p>
+                    <br><button class="cart" onclick="tocart('The Chroniks of Gxandria The Mighty Nein','4800.00','Critical Role')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--3">
+                <div class="icon-overlay"></div>
+                    <img src="img/3.jpg" alt="Gallery image 3" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Teenage Mutant Ninja Turtles</h3>
+                    <p class="icon-text">Kelvin B.Eastman<br>Price : Rs.2900.00</p>
+                    <br><button class="cart" onclick="tocart('Teenage Mutant Ninja Turtles','2900.00','Kelvin B.Eastman')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--4">
+                <div class="icon-overlay"></div>
+                    <img src="img/4.jpg" alt="Gallery image 4" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Avatar:The Last Airbender</h3>
+                    <p class="icon-text">Faith Erin Hicks<br>Price : Rs.4020.00</p>
+                     <br><button class="cart" onclick="tocart('Avatar:The Last Airbender','4020.00','Faith Erin Hicks')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--5">
+                <div class="icon-overlay"></div>
+                    <img src="img/5.jpg" alt="Gallery image 5" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Bone</h3>
+                    <p class="icon-text">Jett Smith<br>Price : Rs.4560.00</p>
+                    <br><button class="cart" onclick="tocart('Bone','4560.00','Jett Smith')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--6">
+                <div class="icon-overlay"></div>
+                    <img src="img/6.jpg" alt="Gallery image 6" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Umbrella Academy</h3>
+                    <p class="icon-text">Gerad Way<br>Price : Rs.2100.00</p>
+                    <br><button class="cart" onclick="tocart('The Umbrella Academy','2100.00','Gerad Way')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--7">
+                <div class="icon-overlay"></div>
+                    <img src="img/7.jpg" alt="Gallery image 7" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Adventure Zone</h3>
+                    <p class="icon-text">Clint Mc Elory<br>Price : Rs.5090.00</p>
+                     <br><button class="cart " onclick="tocart('The Adventure Zone','5090.00','Clint Mc Elory')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--8">
+                <div class="icon-overlay"></div>
+                    <img src="img/8.jpg" alt="Gallery image 8" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Snow,Glass,Apples</h3>
+                    <p class="icon-text">Neil Gaiman<br>Price : Rs.3970.00</p> 
+                     <br><button class="cart" onclick="tocart('Snow,Glass,Apples','3970.00','Neil Gaiman')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--9">
+                <div class="icon-overlay"></div>
+                    <img src="img/9.jpg" alt="Gallery image 9" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Legend of Korra</h3>
+                    <p class="icon-text">Michoel Dante<br>Price : Rs.3190.00</p>
+                     <br><button class="cart" onclick="tocart('The Legend of Korra','3190.00','Michoel Dante')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--10">
+                <div class="icon-overlay"></div>
+                    <img src="img/10.jpg" alt="Gallery image 10" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Last Unicorn</h3>
+                    <p class="icon-text">Peter S.Beagle<br>Price : Rs.4150.00</p>
+                      <br><button class="cart" onclick="tocart('The Last Unicorn','4150.00','Peter S.Beagle')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--11">
+                <div class="icon-overlay"></div>
+                    <img src="img/11.jpg" alt="Gallery image 11" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">The Crow</h3>
+                    <p class="icon-text">James O'Barr<br>Price : Rs.3250.00</p>
+                      <br><button class="cart" onclick="tocart('The Crow','3250.00','James O'Barr')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--12">
+                <div class="icon-overlay"></div>
+                    <img src="img/12.jpg" alt="Gallery image 12" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Promethea</h3>
+                    <p class="icon-text">Alan Moore<br>Price : Rs.2260.00</p>
+                     <br><button class="cart" onclick="tocart('Promethea','2260.00','Alan Moore')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--13">
+                <div class="icon-overlay"></div>
+                    <img src="img/13.jpg" alt="Gallery image 13" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">World of Warcraft</h3>
+                    <p class="icon-text">BLIZZARD ENTRTAINMENT<br>Price : Rs.4000.00</p>
+                     <br><button class="cart" onclick="tocart('World of Warcraft','4000.00','BLIZZARD ENTRTAINMENT')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--14">
+                <div class="icon-overlay"></div>
+                    <img src="img/14.jpg" alt="Gallery image 14" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Avator:The Last AirBender Imblance Part2</h3>
+                    <p class="icon-text">Faith Erin Hicks<br>Price : Rs.3240.00</p>
+                                     <br><button class="cart" onclick="tocart('icon-details fadeIn-bottom','3240.00','Faith Erin Hicks')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--15">
+                <div class="icon-overlay"></div>
+                    <img src="img/15.jpg" alt="Gallery image 15" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Avator:The Last AirBender Imblance Part3</h3>
+                    <p class="icon-text">Faith Erin Hicks<br>Price : Rs.4160.00</p>
+                                     <br><button class="cart" onclick="tocart('Avator:The Last AirBender Imblance Part3','4160.00','Faith Erin Hicks')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--16">
+                <div class="icon-overlay"></div>
+                    <img src="img/16.jpg" alt="Gallery image 16" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Alchemist </h3>
+                    <p class="icon-text">Paulo Coelho<br>Price : Rs.4790.00</p>
+                                     <br><button class="cart" onclick="tocart('The Alchemist','4790.00','Paulo Coelho')">Add to Cart</button>
+                    </div>
+                </figure>
+
+            </div>
+
+</div>
+
+<div id="Action" class="tabcontent">
+ <div class="gallery4">
+            
+                <figure class="gallery__item--1">
+                <div class="icon-overlay"></div>
+                    <img src="img/1a.jpg" alt="Gallery image 1" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                     <h3 class="icon-title">The Action Bible</h3>
+                    <p class="icon-text">Doug Mauss<br>Price : Rs.4860.00</p>
+                     <br><button class="cart" onclick="tocart('The Action Bible','4860.00','Doug Mauss')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--2">
+                <div class="icon-overlay"></div>
+                    <img src="img/2a.jpg" alt="Gallery image 2" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">Violence of Action</h3>
+                    <p class="icon-text">Charles Faint<br>Price : Rs.5210.00</p>
+                                     <br><button class="cart" onclick="tocart('Violence of Action','5210.00','Charles Faint')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--3">
+                <div class="icon-overlay"></div>
+                    <img src="img/3a.jpg" alt="Gallery image 3" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">A Civil Action</h3>
+                    <p class="icon-text">Jonatha Harr<br>Price : Rs.5180.00</p>
+                     <br><button class="cart" onclick="tocart('A Civil Action','5180.00','Jonatha Harr')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--4">
+                <div class="icon-overlay"></div>
+                    <img src="img/4a.jpg" alt="Gallery image 4" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Man of Legends</h3>
+                    <p class="icon-text">Kenneth Johnson<br>Price : Rs.8260.00</p>
+                       <br><button class="cart" onclick="tocart('The Man of Legends','8260.00','Kenneth Johnson')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--5">
+                <div class="icon-overlay"></div>
+                    <img src="img/5a.jpg" alt="Gallery image 5" class="gallery1__img">
+                  <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Action Park</h3>
+                    <p class="icon-text">Andy Mulvihil<br>Price : Rs.3090.00</p>
+                      <br><button class="cart" onclick="tocart('Action Park','3090.00','Andy Mulvihil')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--6">
+                <div class="icon-overlay"></div>
+                    <img src="img/6a.jpg" alt="Gallery image 6" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">The Spider Heist</h3>
+                    <p class="icon-text">Jason Greaney<br>Price : Rs.2630.00</p>
+                    <br><button class="cart" onclick="tocart('The Spider Heist','2630.00','Jason Greaney')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--7">
+                <div class="icon-overlay"></div>
+                    <img src="img/7a.jpg" alt="Gallery image 7" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">One Minute Out</h3>
+                    <p class="icon-text">Mark Greaney<br>Price : Rs.3260.00</p>
+                      <br><button class="cart" onclick="tocart('One Minute Out','3260.00','Mark Greaney')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--8">
+             <div class="icon-overlay"></div>
+                    <img src="img/8a.jpg" alt="Gallery image 8" class="gallery1__img"> 
+                    <div class="icon-details fadeIn-bottom">
+                     <h3 class="icon-title">Truly Deadly</h3>
+                    <p class="icon-text">Rob Aspinall<br>Price : Rs.2900.00</p>           
+                     <br><button class="cart" onclick="tocart('Truly Deadly','2900.00','Rob Aspinall')">Add to Cart</button>        
+                     </div>
+                </figure>
+                <figure class="gallery__item--9">
+                <div class="icon-overlay"></div>
+                    <img src="img/9a.jpg" alt="Gallery image 9" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Men in Green Faces</h3>
+                    <p class="icon-text">Gene Wentz<br>Price : Rs.4600.00</p>
+                     <br><button class="cart" onclick="tocart('Men in Green Faces','4600.00','Gene Wentz')">Add to Cart</button>
+
+                    </div>
+                </figure>
+                <figure class="gallery__item--10">
+                <div class="icon-overlay"></div>
+                    <img src="img/10a.jpg" alt="Gallery image 10" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Greatest Enemy</h3>
+                    <p class="icon-text">Jason Kasper<br>Price : Rs.4100.00</p>
+                     <br><button class="cart" onclick="tocart('Greatest Enemy','4100.00','Jason Kasper')">Add to Cart</button>
+                    </div>
+                
+                </figure>
+                <figure class="gallery__item--11">
+                <div class="icon-overlay"></div>
+                    <img src="img/11a.jpg" alt="Gallery image 11" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Memory Man</h3>
+                    <p class="icon-text">David Baldacci<br>Price : Rs.5390.00</p>
+                     <br><button class="cart" onclick="tocart('Memory Man','5390.00','David Baldacci')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--12">
+                <div class="icon-overlay"></div>
+                    <img src="img/12a.jpg" alt="Gallery image 12" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Action:The Actor's Thresaurus</h3>
+                    <p class="icon-text">Marina Caldorone<br>Price : Rs.4130.00</p>
+                      <br><button class="cart" onclick="tocart('pepllum long sleeve blouse','4130.00','Marina Caldorone')">Add to Cart</button>
+                    </div>
+                </figure>
+                 <figure class="gallery__item--13">
+                 <div class="icon-overlay"></div>
+                    <img src="img/13a.jpg" alt="Gallery image 13" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                     <h3 class="icon-title">A little SPOT Takes Action!</h3>
+                    <p class="icon-text">Diane Alber<br>Price : Rs.4100.00</p>
+                       <br><button class="cart" onclick="tocart('A little SPOT Takes Action!','4100.00','Diane Alber')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--14">
+                <div class="icon-overlay"></div>
+                    <img src="img/14a.jpg" alt="Gallery image 14" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Skill in Action</h3>
+                    <p class="icon-text">Michelle Cassanda<br>Price : Rs.3190.00</p>
+                      <br><button class="cart" onclick="tocart('ralph lauren cap sleeve','3190.00','Michelle Cassanda')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--15">
+                 <div class="icon-overlay"></div>
+                    <img src="img/15a.jpg" alt="Gallery image 15" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">AGENT 192</h3>
+                    <p class="icon-text">Vince Vogel<br>Price : Rs.3910.00</p>
+                     <br><button class="cart" onclick="tocart('AGENT 192','3910.00','Vince Vogel')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--16">
+                <div class="icon-overlay"></div>
+                    <img src="img/16a.jpg" alt="Gallery image 16" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Mulan</h3>
+                    <p class="icon-text">Elizabeth Rudnick<br>Price : Rs.3700.00</p>
+                     <br><button class="cart" onclick="tocart('Mulan','3700.00','Elizabeth Rudnick')">Add to Cart</button>
+                    </div>
+                </figure>
+                
+</div>
+
+</div>
+<div id="Biography" class="tabcontent">
+   <div class="gallery5">
+            
+                <figure class="gallery__item--1">
+                <div class="icon-overlay"></div>
+                    <img src="img/1b.jpg" alt="Gallery image 1" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Fortitude</h3>
+                    <p class="icon-text">Dan Creashaw<br>Price : Rs.3500.00</p>
+                     <br><button class="cart" onclick="tocart('Fortitude','3500.00','Dan Creashaw')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--2">
+                <div class="icon-overlay"></div>
+                    <img src="img/2b.jpg" alt="Gallery image 2" class="gallery1__img">
+                    <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">Grant</h3>
+                    <p class="icon-text">Ron Chernow<br>Price : Rs.3260.00</p>
+                     <br><button class="cart" onclick="tocart('Grant','3260.00','Ron Chernow')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--3">
+               <div class="icon-overlay"></div>
+                    <img src="img/3b.jpg" alt="Gallery image 3" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Incomparable</h3>
+                    <p class="icon-text">Brie Bella,Nikki Bella<br>Price : Rs.4800.00</p>
+                    <br><button class="cart" onclick="tocart('Incomparable','4800.00','Brie Bella,Nikki Bella')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--4">
+                <div class="icon-overlay"></div>
+                    <img src="img/4b.jpg" alt="Gallery image 4" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Room Where It Happened</h3>
+                    <p class="icon-text">John Bolton<br>Price : Rs.3300.00</p>
+                     <br><button class="cart" onclick="tocart('The Room Where It Happened','3300.00','John Bolton')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--5">
+                <div class="icon-overlay"></div>
+                    <img src="img/5b.jpg" alt="Gallery image 5" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">Becoming</h3>
+                    <p class="icon-text">Michelle Obama<br>Price : Rs.3800.00</p>
+                     <br><button class="cart" onclick="tocart('Becoming','3800.00','Michelle Obama')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--6">
+                <div class="icon-overlay"></div>
+                    <img src="img/6b.jpg" alt="Gallery image 6" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                     <h3 class="icon-title">Educated</h3>
+                    <p class="icon-text">Tara Westover<br>Price : Rs.2060.00</p>
+                     <br><button class="cart" onclick="tocart('Educated','2060.00','Tara Westover')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--7">
+                <div class="icon-overlay"></div>
+                    <img src="img/7b.jpg" alt="Gallery image 7" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">The Fire Next Time</h3>
+                    <p class="icon-text">James Baldwin<br>Price : Rs3100.00</p>
+                     <br><button class="cart" onclick="tocart('Floral Blouse','3100.00','James Baldwin')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--8">
+               <div class="icon-overlay"></div>
+                    <img src="img/8b.jpg" alt="Gallery image 8" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Noboady Knows My Name</h3>
+                    <p class="icon-text">James Baldwin<br>Price : Rs.2900.00</p>
+                     <br><button class="cart" onclick="tocart('pasadena polo tshirt','2900.00','James Baldwin')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--9">
+                <div class="icon-overlay"></div>
+                    <img src="img/9b.jpg" alt="Gallery image 9" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Open Book</h3>
+                    <p class="icon-text">Simpson<br>Price : Rs.1650.00</p>
+                      <br><button class="cart" onclick="tocart('Open Book','1650.00','Simpson')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--10">
+                <div class="icon-overlay"></div>
+                    <img src="img/10b.jpg" alt="Gallery image 10" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Chasing The Light</h3>
+                    <p class="icon-text">Oliver Stone<br>Price : Rs.2100.00</p>
+                     <br><button class="cart" onclick="tocart('Chasing The Light','2100.00','Oliver Stone')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--11">
+                 <div class="icon-overlay"></div>
+                    <img src="img/11b.jpg" alt="Gallery image 11" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Next Level Basic</h3>
+                    <p class="icon-text">Stassi Schroeder<br>Price : Rs.3100.00</p>
+                    <br><button class="cart" onclick="tocart('Next Level Basic','3100.00','Stassi Schroeder')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--12">
+                <div class="icon-overlay"></div>
+                    <img src="img/12b.jpg" alt="Gallery image 12" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                  <h3 class="icon-title">Lady Romeo</h3>
+                    <p class="icon-text">Tana Wojczuk<br>Price : Rs.3090.00</p>     
+                     <br><button class="cart" onclick="tocart('Lady Romeo','3090.00','Tana Wojczuk')">Add to Cart</button>               
+                    </div>
+                </figure>
+                <figure class="gallery__item--13">
+                <div class="icon-overlay"></div>
+                    <img src="img/13b.jpg" alt="Gallery image 13" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">Chur Chill:Walking with Destiny</h3>
+                    <p class="icon-text">Andrew Roberts<br>Price : Rs.2900.00</p>
+                     <br><button class="cart" onclick="tocart('Chur Chill:Walking with Destiny','2900.00','Andrew Roberts')">Add to Cart</button>
+
+                    </div>
+                </figure>
+                <figure class="gallery__item--14">
+                <div class="icon-overlay"></div>
+                    <img src="img/14b.jpg" alt="Gallery image 14" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                     <h3 class="icon-title">The Autobiography of Malcolm X</h3>
+                    <p class="icon-text">Malcolm X<br>Price : Rs.4130.00</p> 
+                    <br><button class="cart" onclick="tocart('The Autobiography of Malcolm X','4130.00','Malcolm X')">Add to Cart</button>                   
+                    </div>
+                </figure>
+                <figure class="gallery__item--15">
+                <div class="icon-overlay"></div>
+                    <img src="img/15b.jpg" alt="Gallery image 15" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                    <h3 class="icon-title">Wrestling for My Life</h3>
+                    <p class="icon-text">Show Micheals<br>Price : Rs.4020.00</p>
+                     <br><button class="cart" onclick="tocart('Wrestling for My Life','4020.00','Show Micheals')">Add to Cart</button>
+                    </div>
+                </figure>
+                <figure class="gallery__item--16">
+                <div class="icon-overlay"></div>
+                    <img src="img/16b.jpg" alt="Gallery image 16" class="gallery1__img">
+                     <div class="icon-details fadeIn-bottom">
+                   <h3 class="icon-title">Hastle Harder,Hastle Smarter</h3>
+                    <p class="icon-text">Curtis "50 Ceant" Jackson<br>Price : Rs.4560.00</p>
+                     <br><button class="cart" onclick="tocart('Hastle Harder,Hastle Smarter','4560.00','Curtis 50 Ceant Jackson')">Add to Cart</button>
+                    </div>
+                </figure>
+                
+</div>
+</div>
+</div>
+
+
+<form class="myclass">
+<fieldset>
+<center><h1><strong>Billing Information</strong></h1></center>
+
+<fieldset>
+<legend><h3><i class="fa fa-shopping-cart" style="font-size:36px"></i> Items in Cart</h3></legend>
+
+<div class="row">
+
+<label>Item 1:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;"  id="textbox1" size="40" disabled>&nbsp;
+ <label>Price Per Item:</label> Rs.
+ <input type="text" id="price1" style="font-size:16pt;height:25px;width:120px;text-align:center;"  size="40" disabled>&nbsp;
+<label>Author:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;"  id="textauthor1" size="40" disabled>&nbsp;
+<label>Quantity:</label>
+<select name="quantity" onchange="calculatetotal()" style="font-size:16pt;height:25px;width:100px;" id="quantity1">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option> 
+ </select>&nbsp;
+
+ 
+</div>
+
+
+<div class="row">
+<label>Item 2:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;" id="textbox2"  size="40" disabled>&nbsp;
+  <label>Price Per Item:</label>  Rs.
+   <input type="text" id="price2" style="font-size:16pt;height:25px;width:120px;text-align:center;"  size="40" disabled>&nbsp;
+<label>Author:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;" id="textauthor2"  size="40" disabled>&nbsp;
+<label>Quantity:</label>
+<select name="quantity" onchange="calculatetotal()" style="font-size:16pt;height:25px;width:100px;" id="quantity2">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option> 
+ </select>&nbsp;
+
+
+</div>
+
+<div class="row">
+<label>Item 3:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;"  id="textbox3" size="40" disabled>&nbsp;
+  <label>Price Per Item:</label>  Rs.
+   <input type="text" id="price3" style="font-size:16pt;height:25px;width:120px;text-align:center;"  size="40" disabled>&nbsp;
+<label>Author:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;"  id="textauthor3" size="40" disabled>&nbsp;
+<label>Quantity:</label>
+<select name="quantity" onchange="calculatetotal()" style="font-size:16pt;height:25px;width:100px;" id="quantity3">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option> 
+ </select>&nbsp;
+
+   
+</div>
+
+
+<div class="row">
+<label>Item 4:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;"  id="textbox4" size="40" disabled>&nbsp;
+  <label>Price Per Item:</label> Rs.
+   <input type="text" id="price4" style="font-size:16pt;height:25px;width:120px;text-align:center;"  size="40" disabled >&nbsp;
+<label>Author:</label>
+<input type="text" style="font-size:16pt;height:25px;width:280px;"  id="textauthor4" size="40" disabled>&nbsp;
+<label>Quantity:</label>
+<select name="quantity" onchange="calculatetotal()" style="font-size:16pt;height:25px;width:100px;" id="quantity4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option> 
+ </select>&nbsp;
+  
+</div>
+<div class="row">
+   <label>Total amount:Rs.</label><input type="text" id="total" style="font-size:16pt;height:25px;width:120px;text-align:center;" disabled>
+   <button type='button' class="emptycart" onclick="emptycart()">Empty Cart</button>
+   </div>
+</form>
+</fieldset>
+
+
+<br>
+<form onsubmit="order()">
+<fieldset>
+<legend><h3><i class="fa fa-user-circle-o" style="font-size:36px"></i> Personal Info</h3></legend>
+<div class="row">
+<div class="col1"><label>Name:</label></div>
+<div class="col2"><input type="text" style="font-size:12pt;height:25px;width:280px;" id="fname" placeholder="First Name" size="40" ></div>
+<div class="col3"><label>Email:</label></div>
+<div class="col4"><input type="email" style="font-size:12pt;height:25px;width:280px;" placeholder="E-mail" id="email" size="40" ><br></div>
+</div>
+
+<div class="row">
+<div class="col1"><label>Surname:</label></div>
+<div class="col2"><input type="text" style="font-size:12pt;height:25px;width:280px;" id="sname" name="Surname" placeholder="Your surname" size="40" ></div>
+<div class="col3"><label>Address:</label></div>
+<div class="col4"><input type="text" style="font-size:12pt;height:25px;width:280px;" placeholder="Address" id="address" size="40" ></div>
+</div>
+
+<div class="row">  
+<div class="col1"><label>ZIP:</label></div>
+<div class="col2"><input type="text" style="font-size:12pt;height:25px;width:280px;" placeholder="Zip code" name="zip" size="40"></div>
+<div class="col3"><label>Tel. No:</label></div>
+<div class="col4"><input type="text" style="font-size:12pt;height:25px;width:280px;" placeholder="Telephone" name="tel" size="40" ></div>
+</div>
+
+<div class="row">  
+<div class="col1"><label>*Payment Method:</label></div> 
+<div class="col2">
+<label>Accepted Cards:</label>
+            <div class="cards">
+              <i class="fa fa-cc-visa" style="color:navy;font-size:36px;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;font-size:36px;"></i>
+              <i class="fa fa-cc-mastercard" style="color;font-size:36px;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;font-size:36px;"></i>
+            </div>
+            </div>
+<br> 
+<input type="radio" name="payment method" required><label>&nbsp;PayPal</label> &nbsp;
+<input type="radio" name="payment method"><label>&nbsp;Credit Card</label>&nbsp;
+<input type="radio" name="payment method"><label>&nbsp;Debit Card</label>
+
+</div> 
+
+<div class="row"> 
+<div class="col1"><label>Card Holder:</label></div>
+<div class="col2"><input type="text" style="font-size:16pt;height:25px;width:280px;" id="holder" size="40" ></div>
+</div>
+
+<div class="row"> 
+<div class="col1"><label>Card Number:</label></div>
+<div class="col2"><input type="text" style="font-size:16pt;height:25px;width:280px;" id="cnumber" size="40"></div>
+</div>
+<div class="row">
+<div class="col1"><label>Other requests:</label></div>
+<div class="col2"><textarea name="Comments" rows="10" cols="80"></textarea></div>
+</div>
+  
+</fieldset>
+
+
+<div class="row"> 
+<input type="checkbox" name="condition" id="condition" required>
+<label>*Agree to Terms and Conditions</label></div>
+
+<div class="row"> 
+<div class="col1"></div>
+<div class="col2"></div>
+<div class="col3"></div>
+<div class="col4"></div>
+<input type="submit"  value="Place Order" > 
+<input type="reset"  value="Reset"> 
+</div>
+
+
+</fieldset>
+</form>
+
+
+
+<script>
+
+
+  
+function openGallery(evt, category) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(category).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+ 
+
+</script>
+
+
+<div id="right-bottom"><span style="font-size:20px;cursor:pointer;position:fixed;bottom:20px;right:20px;color:#fbfae2;" onclick="openNav()">&#9776; Page Editor</span>
+</div>
+
+
+
+</div>
+<div  class="footer">
+        <br>
+        <span><center>CONNECT WITH US:<font size="5px">
+        <a href="#" id="social" class="fa fa-facebook"></a>
+        <a href="#" id="social" class="fa fa-twitter"></a>
+        <a href="#" id="social" class="fa fa-google"></a>
+        <a href="#" id="social" class="fa fa-linkedin"></a>
+        <a href="#" id="social" class="fa fa-youtube"></a></font></center></span>
+       <span><br>
+        Need Help?<br>Call Us:<br>0112160578<br><br>
+        General Enquiries:<br>thetreasuretrove@gmail.com</span>
+        <span><br><br>
+        Get updates directly to your inbox:
+        <input type="text" style="width:200px;" name="signup" ><input type="button" class="submit" value="SignUp"><br><br>
+    
+        &copy; 2020 THE TREASURE TROVE COMPANY.ALL RIGHTS RESERVED.<br><br>
+        Sitemap  |   Private Policy  |  Terms &#38; Conditions
+        </span>
+
+     
+</div>
+</body>
+</html>
+    

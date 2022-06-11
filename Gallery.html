@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Gallery</title>
+	<link rel="icon" href="img/Gold The 7 Black.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="gallery1.css">
+	<link rel="stylesheet" type="text/css" href="gallery.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
+	
+	<script>
+		function plusSlides(n) {
+		showSlides(slideIndex += n);
+		}
+		function openNav() {
+		document.getElementById("myNav").style.width = "100%";
+		}
+		function closeNav() {
+		document.getElementById("myNav").style.width = "0%";
+		}
+		
+		function enlargeImage(images) {
+			var enlargeImage = document.getElementById("enlargeImage");
+			var imageTitle = document.getElementById("imageTitle");
+			enlargeImage.src = images.src;
+			imageTitle.innerHTML = images.alt;
+			enlargeImage.parentElement.style.display = "block";
+		}
+
+		function displayDescriptionsSigiriya(){
+			document.getElementById("imageDescription").innerHTML = "fantasy novel written by British author J. K. Rowling and the seventh and final novel of the Harry Potter series. It was released on 21 July 2007 in the United Kingdom by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books..";
+		}
+		function displayDescriptionMirissa(){
+			document.getElementById("imageDescription").innerHTML = "The Hunger Games is a 2008 dystopian novel by the American writer Suzanne Collins. It is written in the voice of 16-year-old Katniss Everdeen, who lives in the future, post-apocalyptic nation of Panem in North America. The Capitol, a highly advanced metropolis, exercises political control over the rest of the nation."
+		}
+		function displayDescriptionPidurangala(){
+			document.getElementById("imageDescription").innerHTML = "The Heroes of Olympus is a pentalogy of fantasy-adventure novels written by American author Rick Riordan. The novels detail a conflict between Greek demigods, Roman demigods, and Gaea (Roman name Terra) also known as Mother Earth.";
+		}
+		function displayDescription9Arches(){
+			document.getElementById("imageDescription").innerHTML = "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. The Da Vinci Code follows symbologist Robert Langdon and cryptologist Sophie Neveu after a murder in the Louvre Museum in Paris causes them to become involved in a battle between the Priory of Sion and Opus Dei over the possibility of Jesus Christ and Mary Magdalene having had a child together.";
+		}
+		function displayDescriptionHikka(){
+			document.getElementById("imageDescription").innerHTML = "The Lightning Thief is a 2005 American fantasy-adventure novel based on Greek mythology, the first young adult novel written by Rick Riordan in the Percy Jackson & the Olympians series. It was adapted into a film named Percy Jackson & the Olympians: The Lightning Thief released in the United States on February 12, 2010.";
+		}
+
+		function twoBackground(){
+			document.body.style.backgroundColor = "#ADD8E6";
+		}
+		function threeBackground(){
+			document.body.style.backgroundColor = "#90EE90";
+		}
+		function fourBackground(){
+			document.body.style.backgroundColor = "#FFB6C1";
+		}
+
+		function oneText(){
+			document.body.style.color = "yellow";
+		}
+		function twoText(){
+			document.body.style.color = "red";
+		}
+		function threeText(){
+			document.body.style.color = "blue";
+		}
+				
+    </script>
+
+</head>
+
+<body onload="currentSlide(1);">
+<body>
+
+	<div id="myNav" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div class="overlay-content">
+			<div class="student">
+				STUDENT 4 <br> Editor: Nipun Dehigama<br>Student ID: 20191073<br>Task Completed:<br>Thumbnail Images
+			</div>
+		</div>
+	</div>
+
+	<div class="icon-bar" >
+		<a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
+		<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+		<a href="#" class="google"><i class="fa fa-google"></i></a> 
+		<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+		<a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+	</div>
+	
+	<img src="img/gal.png" height="230px" width="260px"  style="display: block;margin-left: auto;margin-right:auto;">
+
+	<br>
+
+	<div class="navbar" id="nav">
+		<a href="Home.html">Home</a>
+		<a href="New Arrivals.html">Upcomings</a>
+		<a href="Online Store.html">Shop Online</a>
+		<a href="Quiz.html">Take Quiz</a>
+			<div class="dropdown">
+				<button class="dropbtn">History
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+					<a href="Comic and Fantasy.html">Comic and Fantasy</a>
+					<a href="Biography.html">Biography</a>
+					<a href="Novel.html">Novel</a>
+					<a href="Action.html">Action</a>
+				</div>
+			</div> 
+		<a href="About.html">About</a>
+		<a href="Feedback.html">Send Feedback</a>
+		<a href="Gallery.html" class="active">Gallery</a>
+		<a href="Sitemap.html">Sitemap</a>
+	</div>
+	
+	<ul>
+		<li class="dropdownList"><a class="navdropbutton">Change Page Background Colour</a>
+		<div class="dropdownListcontent">
+			<div class="dropdownListcontent4">	
+				<a href="javascript:twoBackground()">Aqua Blue</a>
+			</div>	
+			<div class="dropdownListcontent5">	
+				<a href="javascript:threeBackground()">Light Green</a>
+			</div>	
+			<div class="dropdownListcontent6">	
+				<a href="javascript:fourBackground()">Hot Pink</a>
+			</div>	
+		</li>
+		</div>
+		
+		<li class ="dropdownList"><a class="navdropbutton">Change Body Text Colour</a>
+		<div class="dropdownListcontent">
+			<div class="dropdownListcontent1">
+				<a href="javascript:oneText()">Yellow</a>
+			</div>	
+			<div class="dropdownListcontent2">	
+				<a href="javascript:twoText()">Red</a>
+			</div>	
+			<div class="dropdownListcontent3">	
+				<a href="javascript:threeText()">Blue</a>
+			</div>	
+		</div>
+		</li>
+	</ul>
+	
+	<div class="imagerow">
+		<div class="imagecolumn">
+			<img src="img/hp.jpg" alt="Harry poter" style="width:100%" onclick="enlargeImage(this);displayDescriptionSigirya(this);">
+		</div>
+		<div class="imagecolumn">
+			<img src="img/hg.jpg" alt="Hunger " style="width:100%" onclick="enlargeImage(this);displayDescriptionMirissa(this);">
+		</div>
+		<div class="imagecolumn">
+			<img src="img/ho.jpg" alt="The heroes of Olympus " style="width:100%" onclick="enlargeImage(this);displayDescriptionPidurangala(this);">
+		</div>
+		<div class="imagecolumn">
+			<img src="img/dv.jpg" alt="Da vinci" style="width:100%" onclick="enlargeImage(this); displayDescription9Arches(this);">
+		</div>
+		<div class="imagecolumn">
+			<img src="img/pj.jpg" alt="Percy Jackson" style="width:100%" onclick="enlargeImage(this);displayDescriptionHikka(this);">
+		</div>
+		
+	</div>
+
+	<div class="imagecontainer">
+		<br>
+		<span onclick="this.parentElement.style.display='none'" class="closebutton">&times;</span>
+		<img id="enlargeImage" style="width:50%">
+		<div id="imageTitle"></div>
+		<div>
+			<h2 id="imageDescription"></h2>
+		</div>
+	</div>
+
+	<div class="content">
+		
+
+		<br>
+		<div id="right-bottom"><span style="font-size:20px;cursor:pointer;position:fixed;bottom:10px;right:8px;color:black;" onclick="openNav()">&#9776; Page Editor</span></div>
+  
+	</div>
+
+	<div  class="footer" >
+        <br>
+
+        <span>
+			<div id="foot1">
+				<center>CONNECT WITH US:<font size="5px">
+				<a href="#" id="social" class="fa fa-facebook"></a>
+				<a href="#" id="social" class="fa fa-twitter"></a>
+				<a href="#" id="social" class="fa fa-google"></a>
+				<a href="#" id="social" class="fa fa-linkedin"></a>
+				<a href="#" id="social" class="fa fa-youtube"></a></font></center>
+			</div>
+		</span>
+
+		<span>
+			<br>     
+			<div id="foot2">
+				Need Help? <br> Call Us <br> 0112160578 <br> <br> General Enquiries: <br> thetreasuretrove@gmail.com <br><br>
+			</div>
+		</span>
+        <span>
+			<div id="foot3">
+				Get updates directly to your inbox:
+				<input type="text" style="width:200px;"name="signup" >
+				<input type="button" class="submit" value="SignUp"><br><br>
+				&copy; 2020 THE TREASURE TROVE COMPANY.ALL RIGHTS RESERVED.<br><br>
+				Sitemap  |   Private Policy  |  Terms & Conditions
+			</div>
+        </span>
+
+	</div>
+	
+</body>
+</html>
+    
